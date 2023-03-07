@@ -7,7 +7,7 @@ ex02: 번들링 환경(webpack.config.js) 설정하기
   - entry
   - output
   
-3. 스크럽팅(package.json)
+3. 스크립팅(package.json)
   "scripts": {
     "start": "node dev-server",
     "build": "npx webpack"

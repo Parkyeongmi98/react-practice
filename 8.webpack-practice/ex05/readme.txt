@@ -11,7 +11,7 @@ ex05: SASS/SCSS Module 번들링 하기
     }]
   }
   
-3. 스크럽팅(package.json)
+3. 스크립팅(package.json)
   "scripts": {
     "start": "npx webpack serve --progress",
     "build": "npx webpack"
