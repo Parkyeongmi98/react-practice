@@ -17,6 +17,6 @@ ex04: 애플리케이션 번들링(bundling)
 8. webpack 설정(webpack.config.js)
 9. 스크립팅(package.json)
 10. 애플리케이션 실행(테스트 서버 실행)
-$ npm start
+    $ npm start
 11. 애플리케이션 빌드(*필수 아님)
-$ npm run build
+    $ npm run build
