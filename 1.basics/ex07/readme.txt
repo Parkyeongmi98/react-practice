@@ -1,4 +1,4 @@
-ex06: React JSX 기반으로 애플리케이션 리팩토링
+ex07: React JSX 기반으로 애플리케이션 리팩토링
 
 1. 설치
     1) 개발툴
@@ -10,4 +10,3 @@ ex06: React JSX 기반으로 애플리케이션 리팩토링
 4. npm 스크립팅(package.json)
 5. 테스트 서버 실행
     $ npm start
-6. 테스트 서버 실행
