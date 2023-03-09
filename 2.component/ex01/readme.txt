@@ -16,7 +16,7 @@ ex01: Propert(props)
     1) 개발툴
        $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader sass-loader node-sass babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react
     2) react library
-       $ npm i react react-dom
+       $ npm i react react-dom prop-types
 
 2. webpack.config.js 설정
 3. babel.config.json 설정
