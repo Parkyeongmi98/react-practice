@@ -16,7 +16,14 @@ module.exports = function(env) {
                 use: 'babel-loader'
             }, {
                 test: /\.(c|sa|sc)ss$/i,                        // css
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 
+                {
+                    loader:'css-loader',
+                    options: {
+                        modules: env['css-modules'] !== 'false'
+                    }
+                }, 
+                'sass-loader']
             }, {
                 test: /\.(png|gif|jpe?g|svg|ico|tiff?|bmp)$/i,  // image
                 type: 'asset/resource'
