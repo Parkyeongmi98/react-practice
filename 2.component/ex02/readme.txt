@@ -27,11 +27,6 @@ ex02: Component Styling
 
 8) Modal: Material UI
 
-   src/01 - FoodList: 함수 컴포넌트
-   src/02 - FoodList: Data Flow(Top->Down) 함수 컴포넌트
-   src/03 - FoodList: Data Flow(Top->Down) 클래스 컴포넌트
-   src/04 - Propert Validation -> $ npm i prop-types
-
 ====================================================================================================================================================================================
 1. 설치
     1) 개발툴

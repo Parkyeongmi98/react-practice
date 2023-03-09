@@ -9,9 +9,3 @@ ex03: React Event
 ex04: State *****
 ex05: Component LifeCycle
 ex06: Immutability(불변성) of Component's State
-
-emaillist07
-guestbook07
-gallery07
-mysite07
-kanbanboard
