@@ -1,4 +1,4 @@
-ex02: Component React Event
+ex03: Component React Event
 
 1) Inline Handler
 2) Function Handler
