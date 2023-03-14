@@ -4,12 +4,13 @@ import Task from './Task';
 const TaskList = ({tasks}) => {
     const [stateTasks, setTasks] = useState(tasks);
     const changeTaskDone = function(no, done) {
-        stateTasks.findIndex(task => task.no === no);
+        console.log(no, done)
+        //stateTasks.findIndex(task => task.no === no);
     }
 
     return (
         <div>
-            <ul>
+            <ul> 
                 {
                     stateTasks.map(task => <Task 
                                         key={task.no}
@@ -24,4 +25,3 @@ const TaskList = ({tasks}) => {
 };
 
 export default TaskList;
-react-addons-update
