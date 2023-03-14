@@ -1,23 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Task from './Task';
 
-const TaskList = ({tasks}) => {
-    const [stateTasks, setTasks] = useState(tasks);
-    const changeTaskDone = function(no, done) {
-        console.log(no, done)
-        //stateTasks.findIndex(task => task.no === no);
-    }
-
+const TaskList = ({cardNo, tasks, callback}) => {
     return (
         <div>
             <ul> 
                 {
-                    stateTasks.map(task => <Task 
+                    tasks.map(task => <Task 
                                         key={task.no}
                                         no={task.no}
+                                        cardNo={cardNo}
                                         name={task.name}
                                         done={task.done}
-                                        callback={changeTaskDone} />)                    
+                                        callback={callback} />)                    
                 }
             </ul>
         </div>

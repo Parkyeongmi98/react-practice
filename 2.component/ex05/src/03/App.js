@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../assets/scss/App.scss'
+import './assets/scss/App.scss'
 import Clock from './Clock';
 
 export default class App extends Component {
@@ -11,7 +11,11 @@ export default class App extends Component {
         return (
             <div className='clock-display'>
                 <h2>ex05 - Component LifeCycle Practice</h2>
-                    <Clock />
+                    <Clock 
+                        hours={5}
+                        minutes={8}
+                        seconds={30}
+                        session={'pm'} />
             </div>
         );
     }
