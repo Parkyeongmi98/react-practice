@@ -5,7 +5,7 @@ import Emaillist from './Emaillist';
 import RegisterForm from './RegisterForm';
 import Searchbar from './Searchbar';
 
-function App(props) {
+function App() {
     const [emails, setEmails] = useState(data);
     const notifyKeywordChanged = function(keyword) {
         // keyword가 firstname or lastname or email에 있으면 화면에 출력
