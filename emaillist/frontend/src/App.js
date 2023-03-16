@@ -30,6 +30,10 @@ function App() {
             console.log(err.message);
         }
     }
+    
+    useEffect(() => {
+        fetchEmails();
+    }, []);
 
     const addEmail = async (firstName, lastName, email) => {
         const newEmail = {
@@ -116,9 +120,7 @@ function App() {
         }
     }
 
-    useEffect(() => {
-        fetchEmails();
-    }, []);
+
 
     return (
         <div id='App' className={'App'}>
