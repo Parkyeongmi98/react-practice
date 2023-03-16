@@ -1,12 +1,15 @@
 import React from 'react';
 
-const Email = ({no, firstName, lastName, email}) => {
+const Email = ({no, firstName, lastName, email, callbackDelEmail}) => {
     return (
         <li>
             {firstName+lastName}
             <br/>
             {email}
-            <a href=''></a>
+            <a href='' onClick={(e) => {
+                                e.preventDefault();
+                                callbackDelEmail(no)
+                                }}></a>
         </li>
     );
 };

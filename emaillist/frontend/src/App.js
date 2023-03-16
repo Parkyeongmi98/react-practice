@@ -1,12 +1,98 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './assets/css/App.css';
-import data from './assets/json/data.json'
 import Emaillist from './Emaillist';
 import RegisterForm from './RegisterForm';
 import Searchbar from './Searchbar';
 
 function App() {
-    const [emails, setEmails] = useState(data);
+    const [emails, setEmails] = useState([]);
+
+    const fetchEmails = async () => {
+        try {
+            const response = await fetch('/api/emaillist', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            setEmails(json.data);
+            
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchEmails();
+    }, []);
+
+    const addEmail = async (firstName, lastName, email) => {
+        const newEmail = {
+            no: null,
+            firstName: firstName,
+            lastName: lastName,
+            email: email
+        }
+
+        try {
+            const response = await fetch('/api/emaillist', {
+                method: 'post',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(newEmail)
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            setEmails([json.data, ...emails]);
+            
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
+
+    const delEmail = async (no) => {
+        try {
+            const response = await fetch(`/api/emaillist/${no}`, {
+                method: 'delete',
+                headers: {
+                    'Accept': 'application/json',
+                }   
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            const newEmails = emails.filter((email) => email.no !== no);
+            setEmails(newEmails);
+            
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
+
     const notifyKeywordChanged = function(keyword) {
         // keyword가 firstname or lastname or email에 있으면 화면에 출력
         const emails = data.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
@@ -15,9 +101,9 @@ function App() {
 
     return (
         <div id='App' className={'App'}>
-            <RegisterForm />
+            <RegisterForm callbackAddEmail={addEmail}/>
             <Searchbar callback={notifyKeywordChanged} />
-            <Emaillist emails={emails}/>
+            <Emaillist emails={emails} callbackDelEmail={delEmail} />
         </div>
     );
 }

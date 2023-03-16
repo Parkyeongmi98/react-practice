@@ -26,7 +26,8 @@ ex05: Component - LifeCycle
 ====================================================================================================================================================================================
 1. 설치
     1) 개발툴
-       $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader sass-loader node-sass babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react
+       $ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader sass-loader node-sass babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react case-sensitive-paths-webpack-plugin
+       ** case-sensitive-paths-webpack-plugin : window환경은 import해오는 파일이름 대소문자 구분을 안해서 오류가 생길 수 있음! 설치해줘야 구분 **
     2) react library
        $ npm i react react-dom prop-types styled-components react-addons-update
 

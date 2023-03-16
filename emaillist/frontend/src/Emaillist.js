@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './assets/css/Emaillist.css'
 import Email from './Email';
 
-const Emaillist = ({emails}) => {
+const Emaillist = ({emails, callbackDelEmail}) => {
     return (
         <ul className={styles.Emaillist}>
             {
@@ -11,7 +11,8 @@ const Emaillist = ({emails}) => {
                                         no = {email.no}
                                         firstName={email.firstName}
                                         lastName={email.lastName}
-                                        email={email.email} />)
+                                        email={email.email}
+                                        callbackDelEmail={callbackDelEmail} />)
             }
         </ul>
     );
