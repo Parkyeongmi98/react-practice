@@ -3,6 +3,7 @@ import styles from './assets/css/Emaillist.css'
 import Email from './Email';
 
 const Emaillist = ({emails, callbackDelEmail}) => {
+    console.log(emails);
     return (
         <ul className={styles.Emaillist}>
             {

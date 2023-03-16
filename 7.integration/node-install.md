@@ -41,7 +41,7 @@
     # ln -s /usr/local/douzone2023/node-v18.14.1 /usr/local/douzone2023/node
     ```
 
-4.	PATH 설정 (/etc/profile)
+4.	PATH 설정 (vi /etc/profile)
 
     ```
     # node 
