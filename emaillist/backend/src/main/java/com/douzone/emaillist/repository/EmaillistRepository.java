@@ -18,10 +18,8 @@ public class EmaillistRepository {
 		return sqlSession.selectList("emaillist.findAll");
 	}
 	
-	public List<EmaillistVo> findByKeyword() {
-		return sqlSession.selectList("emaillist.findByKeyword");
-		
-		
+	public List<EmaillistVo> findByKeyword(String keyword) {
+		return sqlSession.selectList("emaillist.findByKeyword", keyword);
 	}
 	
 	public Boolean insert(EmaillistVo emaillistVo) {

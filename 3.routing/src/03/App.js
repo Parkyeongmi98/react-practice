@@ -15,7 +15,7 @@ export default function App() {
                 <Route path={'/guestbook'} element={<Guestbook />} />
             </Routes>
         </HashRouter>
-        */
+        /*/
 
         <BrowserRouter>
             <Routes>
@@ -24,5 +24,6 @@ export default function App() {
                 <Route path={'/guestbook'} element={<Guestbook />} />
             </Routes>
         </BrowserRouter>
+        //*/
     );
 }

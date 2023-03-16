@@ -30,6 +30,13 @@ public class ApiController {
 				.body(JsonResult.success(emaillistRepository.findAll()));
 	}
 	
+	@GetMapping("/emaillist/{keyword}")
+	public ResponseEntity<JsonResult> KeywordEmail(@PathVariable("keyword") String keyword) {
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.body(JsonResult.success(emaillistRepository.findByKeyword(keyword)));
+	}
+	
 	@PostMapping("/emaillist")
 	public ResponseEntity<JsonResult> createEmail(@RequestBody EmaillistVo emaillistVo) {
 		emaillistRepository.insert(emaillistVo);

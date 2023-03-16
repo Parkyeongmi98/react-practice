@@ -31,10 +31,6 @@ function App() {
         }
     }
 
-    useEffect(() => {
-        fetchEmails();
-    }, []);
-
     const addEmail = async (firstName, lastName, email) => {
         const newEmail = {
             no: null,
@@ -93,16 +89,41 @@ function App() {
         }
     }
 
-    const notifyKeywordChanged = function(keyword) {
+    const notifyKeywordChanged = async (keyword) => {
         // keyword가 firstname or lastname or email에 있으면 화면에 출력
-        const emails = data.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
-        setEmails(emails);
-      }
+        // const emails = data.filter(e => e.firstName.indexOf(keyword) != -1 || e.lastName.indexOf(keyword) != -1 || e.email.indexOf(keyword) != -1);
+        
+        try {
+            const response = await fetch(`/api/emaillist/${keyword}`, {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json',
+                }   
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`);
+            }
+            setEmails(json.data);
+            
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
+
+    useEffect(() => {
+        fetchEmails();
+    }, []);
 
     return (
         <div id='App' className={'App'}>
             <RegisterForm callbackAddEmail={addEmail}/>
-            <Searchbar callback={notifyKeywordChanged} />
+            <Searchbar callbackKeyword={notifyKeywordChanged} />
             <Emaillist emails={emails} callbackDelEmail={delEmail} />
         </div>
     );
