@@ -120,8 +120,6 @@ function App() {
         }
     }
 
-
-
     return (
         <div id='App' className={'App'}>
             <RegisterForm callbackAddEmail={addEmail}/>

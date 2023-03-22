@@ -3,8 +3,6 @@ spring:
    profiles:
       active: development
 
-
-
 ---
 # common spring boot configuration
 spring:
@@ -42,7 +40,6 @@ logging:
    level:
       root: INFO 
          
-
 ---
 # development profile: spring boot configuration
 spring:
