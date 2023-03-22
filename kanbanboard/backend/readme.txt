@@ -11,10 +11,12 @@
 
 2. ssh 연결(ssh key 인증)
 	1) key 생성하기
-		# ssh-keygen -t rsa -b 2048 -m PEM -C "kickscar@gmail.com"
+		# ssh-keygen -t rsa -b 2048 -m PEM -C "yeongmi_@naver.com"
+		
 	2) key 생성확인
 		- ~/.ssh/id_rsa		: private key
 		- ~/.ssh/id_rsa.pub : public key
+	
 	3) 공개키를 서버에 설치하기
 		# mv ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys	
 	
@@ -44,14 +46,17 @@
        	$ npm i -D webpack webpack-cli webpack-dev-server style-loader css-loader sass-loader node-sass babel-loader @babel/core @babel/cli @babel/preset-env @babel/preset-react case-sensitive-paths-webpack-plugin
        - library
       	$ npm i react react-dom prop-types styled-components react-addons-update
+    
     2) 설정
        - webpack.config.js
        - babel.config.json
+       
     3) npm 스크립팅
        "scripts": {
     		"debug": "npx webpack serve --config config/webpack.config.js --progress --mode development --env",
     		"build": "npx webpack --config config/webpack.config.js --mode production"
   		}
+  		
   	4) 테스트(개발 모드)
   	   $ npm start
   	   
