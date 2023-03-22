@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import styles from './assets/css/Kanbanboard.css';
+import styles from './assets/css/KanbanBoard.css';
 import CardList from './CardList';
 
 const kanbanboard = () => {
